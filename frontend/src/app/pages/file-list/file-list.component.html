@@ -1,0 +1,10 @@
+<mat-list>
+  <div mat-subheader>Files</div>
+  @for (file of files; track file) {
+    <mat-list-item>
+      <mat-icon matListItemIcon>note</mat-icon>
+      <div matListItemTitle>{{file.name}}</div>
+      <div matListItemLine>date</div>
+    </mat-list-item>
+  }
+</mat-list>

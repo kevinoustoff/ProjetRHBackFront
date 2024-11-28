@@ -1,0 +1,18 @@
+<!--<mat-list>
+  <mat-list-item *ngFor="let folder of folders">
+    <mat-icon matListItemIcon>folder</mat-icon>
+    <h4 matLine>{{ folder.name }}</h4>
+  </mat-list-item>
+</mat-list>-->
+
+<mat-list>
+  <div mat-subheader>Folders</div>
+  @for (folder of folders; track folder) {
+    <mat-list-item (click)="onClickFolder(folder)">
+      <mat-icon matListItemIcon>folder</mat-icon>
+      <div matListItemTitle>{{folder.name}}</div>
+      <div matListItemLine>date</div>
+    </mat-list-item>
+  }
+</mat-list>
+
