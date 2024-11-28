@@ -1,8 +1,10 @@
-package edu.miage.springboot.dao.repositories;
+package com.projet.RH.repositories;
 
-import edu.miage.springboot.dao.entities.UserEntity;
+
+import com.projet.RH.models.Utilisateur;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface UserRepository extends JpaRepository<UserEntity, Long> {
-    UserEntity findByUsername(String username);
+public interface UserRepository extends JpaRepository<Utilisateur, Long> {
+    Utilisateur findByUsername(String username);
 }
