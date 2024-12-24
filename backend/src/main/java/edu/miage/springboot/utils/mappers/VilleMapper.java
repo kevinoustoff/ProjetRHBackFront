@@ -1,11 +1,12 @@
-package com.projet.RH.utils.mappers;
+package edu.miage.springboot.utils.mappers;
 
 import java.util.List;
 
+import edu.miage.springboot.dao.entities.Ville;
+import edu.miage.springboot.web.dtos.VilleDTO;
 import org.mapstruct.Mapper;
 
-import com.projet.RH.dtos.VilleDTO;
-import com.projet.RH.models.Ville;
+
 
 @Mapper(componentModel = "spring")
 public interface VilleMapper {

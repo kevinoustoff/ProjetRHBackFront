@@ -1,10 +1,12 @@
-package com.projet.RH.services.impl;
+package edu.miage.springboot.services.impl;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.projet.RH.dtos.CandidatureDTO;
-import com.projet.RH.services.interfaces.CandidatureService;
+
+import edu.miage.springboot.services.interfaces.CandidatureService;
+import edu.miage.springboot.web.dtos.CandidatureDTO;
+
 
 public class CandiatureImpl implements CandidatureService {
 

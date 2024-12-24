@@ -1,10 +1,10 @@
-package com.projet.RH.services.impl;
+package edu.miage.springboot.services.impl;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.projet.RH.dtos.UtilisateurDTO;
-import com.projet.RH.services.interfaces.UtilisateurService;
+import edu.miage.springboot.web.dtos.UtilisateurDTO;
+import edu.miage.springboot.services.interfaces.UtilisateurService;
 
 public class UtilisateurImpl implements UtilisateurService {
 

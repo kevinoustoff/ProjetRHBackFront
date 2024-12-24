@@ -1,11 +1,12 @@
-package com.projet.RH.utils.mappers;
+package edu.miage.springboot.utils.mappers;
 
 import java.util.List;
 
+import edu.miage.springboot.dao.entities.OffreEmploi;
+import edu.miage.springboot.web.dtos.OffreEmploiDTO;
 import org.mapstruct.Mapper;
 
-import com.projet.RH.dtos.OffreEmploiDTO;
-import com.projet.RH.models.OffreEmploi;
+
 
 @Mapper(componentModel = "spring")
 public interface OffreEmploiMapper {

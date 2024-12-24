@@ -1,10 +1,11 @@
-package com.projet.RH.services.impl;
+package edu.miage.springboot.services.impl;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.projet.RH.dtos.VilleDTO;
-import com.projet.RH.services.interfaces.VilleService;
+
+import edu.miage.springboot.services.interfaces.VilleService;
+import edu.miage.springboot.web.dtos.VilleDTO;
 
 public class VilleImpl implements VilleService {
 

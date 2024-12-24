@@ -1,9 +1,9 @@
-package com.projet.RH.services.interfaces;
+package edu.miage.springboot.services.interfaces;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.projet.RH.dtos.VilleDTO;
+import edu.miage.springboot.web.dtos.VilleDTO;
 
 public interface VilleService {
 	public List<VilleDTO> getAll();
@@ -16,6 +16,5 @@ public interface VilleService {
 
     public void deleteById(Long id);
 
-	
 
 }

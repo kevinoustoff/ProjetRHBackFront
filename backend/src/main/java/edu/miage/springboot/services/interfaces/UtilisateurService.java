@@ -1,10 +1,10 @@
-package com.projet.RH.services.interfaces;
+package edu.miage.springboot.services.interfaces;
 
 import java.util.List;
 import java.util.Optional;
 
 
-import com.projet.RH.dtos.UtilisateurDTO;
+import edu.miage.springboot.web.dtos.UtilisateurDTO;
 
 public interface UtilisateurService {
 	public List<UtilisateurDTO> getAll();

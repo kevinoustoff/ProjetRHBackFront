@@ -1,9 +1,9 @@
-package com.projet.RH.services.interfaces;
+package edu.miage.springboot.services.interfaces;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.projet.RH.dtos.OffreEmploiDTO;
+import edu.miage.springboot.web.dtos.OffreEmploiDTO;
 
 public interface OffreEmploiService {
 	public List<OffreEmploiDTO> getAll();

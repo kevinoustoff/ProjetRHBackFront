@@ -1,8 +1,9 @@
-package com.projet.RH.repositories;
+package edu.miage.springboot.dao.repositories;
 
+import edu.miage.springboot.dao.entities.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.projet.RH.models.Utilisateur;
+
 
 public interface UtilisateurRepository extends JpaRepository<Utilisateur, Long> {
 

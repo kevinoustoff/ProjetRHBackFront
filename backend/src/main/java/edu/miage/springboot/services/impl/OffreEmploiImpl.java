@@ -1,10 +1,12 @@
-package com.projet.RH.services.impl;
+package edu.miage.springboot.services.impl;
+
+import edu.miage.springboot.services.interfaces.OffreEmploiService;
+import edu.miage.springboot.web.dtos.OffreEmploiDTO;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.projet.RH.dtos.OffreEmploiDTO;
-import com.projet.RH.services.interfaces.OffreEmploiService;
+
 
 public class OffreEmploiImpl implements OffreEmploiService {
 

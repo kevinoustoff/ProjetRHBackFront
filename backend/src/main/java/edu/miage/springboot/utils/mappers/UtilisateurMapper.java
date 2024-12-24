@@ -1,12 +1,12 @@
-package com.projet.RH.utils.mappers;
+package edu.miage.springboot.utils.mappers;
 
 import java.util.List;
 
 import org.mapstruct.Mapper;
 
 
-import com.projet.RH.dtos.UtilisateurDTO;
-import com.projet.RH.models.Utilisateur;
+import edu.miage.springboot.web.dtos.UtilisateurDTO;
+import edu.miage.springboot.dao.entities.Utilisateur;
 
 @Mapper(componentModel = "spring")
 public interface UtilisateurMapper {

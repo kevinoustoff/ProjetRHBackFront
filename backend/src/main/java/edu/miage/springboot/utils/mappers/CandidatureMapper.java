@@ -1,10 +1,10 @@
-package com.projet.RH.utils.mappers;
+package edu.miage.springboot.utils.mappers;;
 
 import java.util.List;
 import org.mapstruct.Mapper;
 
-import com.projet.RH.dtos.CandidatureDTO;
-import com.projet.RH.models.Candidature;
+import edu.miage.springboot.web.dtos.CandidatureDTO;
+import edu.miage.springboot.dao.entities.Candidature;
 
 @Mapper(componentModel = "spring")
 public interface CandidatureMapper {

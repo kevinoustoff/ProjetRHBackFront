@@ -1,4 +1,4 @@
-package com.projet.RH.models;
+package edu.miage.springboot.dao.entities;
 
 import java.util.HashSet;
 import java.util.Set;

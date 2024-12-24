@@ -1,4 +1,4 @@
-package com.projet.RH.dtos;
+package edu.miage.springboot.web.dtos;
 
 public class AuthRequestDTO {
 

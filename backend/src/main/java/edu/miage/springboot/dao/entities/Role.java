@@ -1,4 +1,4 @@
-package com.projet.RH.models;
+package edu.miage.springboot.dao.entities;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

@@ -1,4 +1,4 @@
-package com.projet.RH.seeders;
+package edu.miage.springboot.seeders;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,11 +6,10 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.projet.RH.models.Role;
-import com.projet.RH.models.Utilisateur;
-import com.projet.RH.repositories.UserRoleRepository;
-import com.projet.RH.repositories.UserRepository;
-
+import edu.miage.springboot.dao.entities.Role;
+import edu.miage.springboot.dao.entities.Utilisateur;
+import edu.miage.springboot.dao.repositories.UserRoleRepository;
+import edu.miage.springboot.dao.repositories.UserRepository;
 import java.util.Set;
 
 @Component

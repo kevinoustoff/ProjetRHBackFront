@@ -1,5 +1,4 @@
-package com.projet.RH.dtos;
-
+package edu.miage.springboot.web.dtos;
 import java.util.Date;
 
 public class OffreEmploiDTO {

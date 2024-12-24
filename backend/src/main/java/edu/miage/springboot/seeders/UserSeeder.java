@@ -1,7 +1,7 @@
 package edu.miage.springboot.seeders;
 
-import edu.miage.springboot.dao.entities.UserEntity;
-import edu.miage.springboot.dao.entities.UserRoleEntity;
+import edu.miage.springboot.dao.entities.Role;
+import edu.miage.springboot.dao.entities.Utilisateur;
 import edu.miage.springboot.dao.repositories.UserRepository;
 import edu.miage.springboot.dao.repositories.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,21 +21,21 @@ public class UserSeeder implements CommandLineRunner {
     private UserRoleRepository userRoleRepository;
     @Override
     public void run(String... args) throws Exception {
-        UserRoleEntity userRole=new UserRoleEntity();
-        userRole.setName("USER");
+        Role userRole=new Role();
+        userRole.setNom("USER");
         userRole=userRoleRepository.save(userRole);
 
-        UserRoleEntity adminRole=new UserRoleEntity();
-        adminRole.setName("ADMIN");
+        Role adminRole=new Role();
+        adminRole.setNom("ADMIN");
         adminRole=userRoleRepository.save(adminRole);
 
-        UserEntity user=new UserEntity();
+        Utilisateur user=new Utilisateur();
         user.setUsername("user");
         user.setPassword(passwordEncoder.encode("123456"));
         user.setRoles(Set.of(userRole));
         userRepository.save(user);
 
-        UserEntity admin=new UserEntity();
+        Utilisateur admin=new Utilisateur();
         admin.setUsername("admin");
         admin.setPassword(passwordEncoder.encode("123456"));
         admin.setRoles(Set.of(userRole,adminRole));

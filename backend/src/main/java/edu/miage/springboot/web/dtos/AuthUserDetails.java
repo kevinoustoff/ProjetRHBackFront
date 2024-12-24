@@ -1,7 +1,7 @@
-package com.projet.RH.dtos;
+package edu.miage.springboot.web.dtos;
 
-import com.projet.RH.models.Utilisateur;
-import com.projet.RH.models.Role;
+import edu.miage.springboot.dao.entities.Utilisateur;
+import edu.miage.springboot.dao.entities.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
