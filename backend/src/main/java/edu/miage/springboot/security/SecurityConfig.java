@@ -29,8 +29,7 @@ import java.util.List;
 public class SecurityConfig {
     @Autowired
     JwtAuthFilter jwtAuthFilter;
-    @Value("{app.dev.frontend.local}")
-    String allowedOrigins;
+    String allowedOrigins="http://localhost:4200";
     @Bean
     public UserDetailsService userDetailsService(){
         return new AuthUserDetailsService();
