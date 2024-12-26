@@ -1,23 +1,32 @@
-<mat-card>
-  <mat-card-title>Login</mat-card-title>
-<mat-card-content>
-<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-<p>
-  <mat-form-field>
-    <input type="text" matInput placeholder="Username" formControlName="username">
-  </mat-form-field>
-</p>
+<div class="container" id="container">
+  <div class="form-container sign-in-container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <h1>Connexion</h1>
+      <div class="social-container">
+        <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+        <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+      </div>
+      <span></span>
+      <input type="text"   placeholder="Username" formControlName="username"  />
+      <input type="password" placeholder="Password"  placeholder="Password" formControlName="password" />
+      <a href="#" >Forgot your password?</a>
+      <button type="submit">Sign In</button>
+    </form>
+  </div>
+  <div class="overlay-container">
+    <div class="overlay">
+      <div class="overlay-panel overlay-left">
+        <h1>Connexion!</h1>
+        <p>Veuillez vous connecter avec votre compte</p>
+        <button class="ghost" id="signIn">Sign In</button>
+      </div>
+      <div class="overlay-panel overlay-right">
+        <h1>Bienvenue !</h1>
+        <p>Votre application de recrutement</p>
 
-<p>
-  <mat-form-field>
-    <input type="password" matInput placeholder="Password" formControlName="password">
-  </mat-form-field>
-</p>
-
-<div class="button">
-  <button type="submit" mat-button>Login</button>
+      </div>
+    </div>
+  </div>
 </div>
 
-</form>
-</mat-card-content>
-</mat-card>
