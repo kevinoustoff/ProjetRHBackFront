@@ -1,4 +1,4 @@
-package edu.miage.springboot.utils.mappers;;
+package edu.miage.springboot.utils.mappers;
 
 import java.util.List;
 import org.mapstruct.Mapper;
