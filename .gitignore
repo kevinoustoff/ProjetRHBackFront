@@ -5,6 +5,7 @@
 /frontend/node/
 /.idea/
 /frontend/node_modules
+/frontend/dist
 
 .idea/**/workspace.xml
 .idea/**/tasks.xml
