@@ -16,6 +16,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { JwtInterceptor } from './interceptors/JwtInterceptor';
 import { FileListComponent } from './pages/file-list/file-list.component';
+import { OffresRHComponent } from './pages/offres-rh/offres-rh.component';
+import { AgGridModule } from 'ag-grid-angular'; 
+import { AllCommunityModule } from 'ag-grid-community';
+import { MenuComponent } from './layout/menu/menu.component';
+
 
 
 @NgModule({
@@ -24,6 +29,7 @@ import { FileListComponent } from './pages/file-list/file-list.component';
     LoginComponent,
     FolderListComponent,
     FileListComponent
+   
   ],
   imports: [
     CommonModule,
@@ -36,7 +42,8 @@ import { FileListComponent } from './pages/file-list/file-list.component';
     MatFormFieldModule,
     MatButtonModule,
     MatInputModule,
-    MatListModule
+    MatListModule,
+    
   ],
   providers: [
     provideAnimationsAsync(),
