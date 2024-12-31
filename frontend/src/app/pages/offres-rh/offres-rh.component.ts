@@ -3,17 +3,16 @@ import { AgGridAngular } from "ag-grid-angular";
 import { ColDef, CellClickedEvent,ICellRendererParams } from "ag-grid-community";
 import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
 import { MenuComponent } from '../../layout/menu/menu.component';
+import {FolderService} from "../../services/folder.service";
+import {Router} from "@angular/router";
+import {Folder} from "../../models/Folder";
+import {OffresService} from "../../services/offres.service";
+import {Offre} from "../../models/Offre";
 
 // Register AG Grid Modules
 ModuleRegistry.registerModules([AllCommunityModule]);
 
 // Define the row data structure
-interface IRow {
-  nom: string;
-  reference: string;
-  statut: string;
-  datePublication: string;
-}
 
 @Component({
   selector: 'app-offres-rh',
@@ -23,7 +22,8 @@ interface IRow {
   styleUrls: ['./offres-rh.component.scss'] // Corrected styleUrls (plural)
 })
 export class OffresRHComponent implements OnInit {
-  colDefs: ColDef<IRow>[] = [
+  offres:Offre[]=[];
+  colDefs: ColDef<Offre>[] = [
     { field: "reference", headerName: "Reference" },
     { field: "nom", headerName: "Nom" },
     { field: "statut", headerName: "Statut" },
@@ -38,11 +38,18 @@ export class OffresRHComponent implements OnInit {
     }
   ];
 
-  rowData: IRow[] = [
-    { nom: "Business Analyst F/H", reference: "J1224-2339", statut: "", datePublication: "30/10/2024" },
-    { nom: "Ingénieur(e) d’études et développement F/H", reference: "J1224-2340", statut: "", datePublication: "10/06/2024" },
-    { nom: "Consultant(e) / Chef(fe) de Projet MES – Industrie 4.0 F/H", reference: "J1224-2337", statut: "", datePublication: "01/12/2024" },
+  rowData: Offre[] = [
+
   ];
+
+  constructor(private offreService:OffresService, private router:Router){
+    this.offreService.getAllOffres().subscribe((offres:Offre[])=>{
+      this.rowData = offres
+      console.log('Offres loaded:', this.rowData);
+    });
+
+
+  }
 
   ngOnInit(): void {}
 

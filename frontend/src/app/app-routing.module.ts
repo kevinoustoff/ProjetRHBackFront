@@ -8,7 +8,7 @@ import { OffresRHComponent } from './pages/offres-rh/offres-rh.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
-  {path:"offres-rh",component:OffresRHComponent},
+  {path:"offres-rh",component:OffresRHComponent,canActivate: [AuthGuard],},
 
   {path:"",component:FolderListComponent,canActivate: [AuthGuard],},
   {path:"folder/:id",component:FileListComponent,canActivate: [AuthGuard],},

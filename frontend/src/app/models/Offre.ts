@@ -1,7 +1,8 @@
 export interface Offre{
     id:string;
-    name:string;
+    nom:string;
     description:string;
     reference:string;
     datePublication:string;
+    statut:string
 }
