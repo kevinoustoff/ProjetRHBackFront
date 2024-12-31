@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import edu.miage.springboot.web.dtos.UtilisateurDTO;
 import edu.miage.springboot.services.interfaces.UtilisateurService;
+import org.springframework.stereotype.Service;
 
+@Service
 public class UtilisateurImpl implements UtilisateurService {
 
 	@Override

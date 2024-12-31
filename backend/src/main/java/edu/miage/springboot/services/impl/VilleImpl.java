@@ -6,7 +6,9 @@ import java.util.Optional;
 
 import edu.miage.springboot.services.interfaces.VilleService;
 import edu.miage.springboot.web.dtos.VilleDTO;
+import org.springframework.stereotype.Service;
 
+@Service
 public class VilleImpl implements VilleService {
 
 	@Override

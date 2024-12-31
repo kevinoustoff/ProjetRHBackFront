@@ -6,8 +6,9 @@ import java.util.Optional;
 
 import edu.miage.springboot.services.interfaces.CandidatureService;
 import edu.miage.springboot.web.dtos.CandidatureDTO;
+import org.springframework.stereotype.Service;
 
-
+@Service
 public class CandiatureImpl implements CandidatureService {
 
 	@Override
