@@ -26,7 +26,7 @@ public class AuthController {
     public AuthResponseDTO AuthenticateAndGetToken(@RequestBody AuthRequestDTO authRequestDTO) {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequestDTO.getUsername(), authRequestDTO.getPassword()));
         if (authentication.isAuthenticated()) {
-            return new AuthResponseDTO(jwtService.GenerateToken(authRequestDTO.getUsername()));
+            return new AuthResponseDTO(jwtService.GenerateToken(authRequestDTO.getUsername()),authRequestDTO.getUsername());
         } else {
             throw new UsernameNotFoundException("invalid user request..!!");
         }

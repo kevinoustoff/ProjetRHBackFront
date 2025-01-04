@@ -31,10 +31,10 @@ export class OffresRHComponent implements OnInit {
     {
       headerName: "Actions", // Custom action column
       cellRenderer: (params: ICellRendererParams) => {
-        return `<button class="btn btn-primary">Voir les candidatures</button>`;
+        return `<button class="btn btn-primary">Voir les détails</button>`;
       },
       onCellClicked: (params: CellClickedEvent) => this.onActionClick(params),
-      width: 150,
+      width: 200,
     }
   ];
 
@@ -57,6 +57,7 @@ export class OffresRHComponent implements OnInit {
   onActionClick(params: CellClickedEvent): void {
     const rowData = params.data; // Access the row data
     console.log('Action button clicked for row:', rowData);
-    alert(`Action clicked for: ${rowData.nom}`);
+    //alert(`Action clicked for: ${rowData.nom}`);
+    this.router.navigate(['/offres-rh', rowData.id])
   }
 }

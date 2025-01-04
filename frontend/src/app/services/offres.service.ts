@@ -17,4 +17,9 @@ export class OffresService {
 
     return this.http.get<Offre[]>(url);
   }
+
+  getOffreDetail(id: number): Observable<Offre> {
+    const url = `${geturl()}/api/offres/${id}`;
+    return this.http.get<Offre>(url);
+  }
 }
