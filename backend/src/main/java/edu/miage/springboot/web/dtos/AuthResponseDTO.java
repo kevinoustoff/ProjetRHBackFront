@@ -1,6 +1,12 @@
 package edu.miage.springboot.web.dtos;
 
-public class AuthResponseDTO {
+import edu.miage.springboot.dao.entities.Role;
+
+import java.io.Serializable;
+import java.util.Set;
+
+public class AuthResponseDTO implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private String accessToken;
 
@@ -14,14 +20,25 @@ public class AuthResponseDTO {
 
     private String username;
 
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
+    }
+
+    private Set<Role> roles;
+
 
 
     public AuthResponseDTO() {
     }
 
-    public AuthResponseDTO(String accessToken,String username) {
+    public AuthResponseDTO(String accessToken,String username ,Set<Role> roles) {
         this.accessToken = accessToken;
         this.username = username;
+        this.roles = roles;
     }
 
     public String getAccessToken() {
