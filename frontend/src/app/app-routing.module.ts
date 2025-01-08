@@ -6,11 +6,15 @@ import { AuthGuard } from './guards/AuthGuard';
 import { FileListComponent } from './pages/file-list/file-list.component';
 import { OffresRHComponent } from './pages/offres-rh/offres-rh.component';
 import {OffresDetailsComponent} from "./pages/offres-details/offres-details.component";
+import {OffreCreateComponent} from "./pages/offre-create/offre-create.component";
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"offres-rh",component:OffresRHComponent,canActivate: [AuthGuard],},
+  {path:"offres-rh/create",component:OffreCreateComponent,canActivate: [AuthGuard]},
   {path:"offres-rh/:id",component:OffresDetailsComponent,canActivate: [AuthGuard]},
+
+
 
   {path:"",component:FolderListComponent,canActivate: [AuthGuard],},
   {path:"folder/:id",component:FileListComponent,canActivate: [AuthGuard],},
