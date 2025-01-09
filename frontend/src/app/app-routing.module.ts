@@ -7,6 +7,7 @@ import { FileListComponent } from './pages/file-list/file-list.component';
 import { OffresRHComponent } from './pages/offres-rh/offres-rh.component';
 import {OffresDetailsComponent} from "./pages/offres-details/offres-details.component";
 import {OffreCreateComponent} from "./pages/offre-create/offre-create.component";
+import {HomeComponent} from "./pages/home/home.component";
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -16,7 +17,7 @@ const routes: Routes = [
 
 
 
-  {path:"",component:FolderListComponent,canActivate: [AuthGuard],},
+  {path:"",component:HomeComponent,canActivate: [AuthGuard],},
   {path:"folder/:id",component:FileListComponent,canActivate: [AuthGuard],},
   {path:"**",pathMatch:'full',redirectTo:"/"}
 ];

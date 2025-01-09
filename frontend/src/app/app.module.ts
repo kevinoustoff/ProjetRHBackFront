@@ -20,6 +20,7 @@ import { OffresRHComponent } from './pages/offres-rh/offres-rh.component';
 import { AgGridModule } from 'ag-grid-angular'; 
 import { AllCommunityModule } from 'ag-grid-community';
 import { MenuComponent } from './layout/menu/menu.component';
+import {HomeComponent} from "./pages/home/home.component";
 
 
 
@@ -28,8 +29,7 @@ import { MenuComponent } from './layout/menu/menu.component';
     AppComponent,
     LoginComponent,
     FolderListComponent,
-    FileListComponent
-   
+    FileListComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +49,6 @@ import { MenuComponent } from './layout/menu/menu.component';
     provideAnimationsAsync(),
       { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true }
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

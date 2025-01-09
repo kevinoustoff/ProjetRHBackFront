@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit{
     this.authService.login(this.loginForm.value)
       .subscribe((response:AuthResponse) => {
         sessionStorage.setItem("ACCESS_TOKEN",response.accessToken);
-        this.router.navigateByUrl("/offres-rh");
+        this.router.navigateByUrl("");
       });
   }
 }

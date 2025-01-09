@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 import {Folder} from "../../models/Folder";
 import {OffresService} from "../../services/offres.service";
 import {Offre} from "../../models/Offre";
+import {CommonModule} from "@angular/common";
 
 // Register AG Grid Modules
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -17,7 +18,7 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 @Component({
   selector: 'app-offres-rh',
   standalone: true,
-  imports: [AgGridAngular,MenuComponent], // Removed AgGridModule
+  imports: [AgGridAngular,MenuComponent,CommonModule], // Removed AgGridModule
   templateUrl: './offres-rh.component.html',
   styleUrls: ['./offres-rh.component.scss'] // Corrected styleUrls (plural)
 })
@@ -27,7 +28,9 @@ export class OffresRHComponent implements OnInit {
     { field: "reference", headerName: "Reference" },
     { field: "nom", headerName: "Nom" },
     { field: "statut", headerName: "Statut" },
-    { field: "datePublication", headerName: "Date de Publication" },
+    { field: "datePublication",
+      headerName: "Date de Publication",
+      valueFormatter: (params) => this.formatDate(params.value) },
     {
       headerName: "Actions", // Custom action column
       cellRenderer: (params: ICellRendererParams) => {
@@ -59,5 +62,10 @@ export class OffresRHComponent implements OnInit {
     console.log('Action button clicked for row:', rowData);
     //alert(`Action clicked for: ${rowData.nom}`);
     this.router.navigate(['/offres-rh', rowData.id])
+  }
+
+  formatDate(date: string | Date): string {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(date).toLocaleDateString('fr-FR', options);
   }
 }
