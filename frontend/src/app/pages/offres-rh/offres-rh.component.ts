@@ -25,14 +25,16 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 export class OffresRHComponent implements OnInit {
   offres:Offre[]=[];
   colDefs: ColDef<Offre>[] = [
-    { field: "reference", headerName: "Reference" },
+    { field: "reference", headerName: "Référence" },
     { field: "nom", headerName: "Nom" },
     { field: "statut", headerName: "Statut" },
     { field: "datePublication",
       headerName: "Date de Publication",
       valueFormatter: (params) => this.formatDate(params.value) },
+    { field: "duree", headerName: "Durée" },
+    { field: "typeEmploi", headerName: "Type d'Emploi" },
     {
-      headerName: "Actions", // Custom action column
+      headerName: "Actions", // Colonne d'actions personnalisée
       cellRenderer: (params: ICellRendererParams) => {
         return `<button class="btn btn-primary">Voir les détails</button>`;
       },
@@ -68,4 +70,8 @@ export class OffresRHComponent implements OnInit {
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
     return new Date(date).toLocaleDateString('fr-FR', options);
   }
+  onClickCreate(){
+    this.router.navigate(['/offres-rh/create']);
+  }
+
 }
