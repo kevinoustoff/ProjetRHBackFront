@@ -14,12 +14,16 @@ export class OffresService {
 
   getAllOffres():Observable<Offre[]> {
     const url=`${geturl()}/api/offres`;
-
     return this.http.get<Offre[]>(url);
   }
 
   getOffreDetail(id: number): Observable<Offre> {
     const url = `${geturl()}/api/offres/${id}`;
     return this.http.get<Offre>(url);
+  }
+
+  createOffre(offre: Offre): Observable<Offre> {
+    const url = `${geturl()}/api/offres`;
+    return this.http.post<Offre>(url, offre);
   }
 }

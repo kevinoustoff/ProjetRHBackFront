@@ -5,10 +5,7 @@ import edu.miage.springboot.web.dtos.FolderDTO;
 import edu.miage.springboot.web.dtos.OffreEmploiDTO;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,12 @@ public class OffreEmploiController {
     public ResponseEntity<OffreEmploiDTO> getById(@PathVariable Long id) {
         return ResponseEntity.ok(offreEmploiService.getById(id).orElseThrow(()->new EntityNotFoundException()));
     }
+
+    @PostMapping
+    public ResponseEntity<OffreEmploiDTO> createOffre(@RequestBody OffreEmploiDTO offreEmploiDTO) {
+        OffreEmploiDTO createdOffre = offreEmploiService.save(offreEmploiDTO);
+        return ResponseEntity.ok(createdOffre);
+    }
+
 
 }

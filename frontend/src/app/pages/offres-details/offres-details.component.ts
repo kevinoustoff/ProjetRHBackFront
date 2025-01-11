@@ -3,13 +3,15 @@ import {MenuComponent} from "../../layout/menu/menu.component";
 import {OffresService} from "../../services/offres.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Offre} from "../../models/Offre";
+import {DatePipe} from "@angular/common";
 
 @Component({
   selector: 'app-offres-details',
   standalone: true,
-  imports: [
-    MenuComponent
-  ],
+    imports: [
+        MenuComponent,
+        DatePipe
+    ],
   templateUrl: './offres-details.component.html',
   styleUrl: './offres-details.component.scss'
 })
