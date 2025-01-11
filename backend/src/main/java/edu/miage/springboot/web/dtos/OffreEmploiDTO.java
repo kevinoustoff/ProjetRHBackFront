@@ -14,6 +14,10 @@ private Long id;
 	
 	private String reference;
 
+	private String duree;
+
+	private String typeEmploi;
+
 	public Long getId() {
 		return id;
 	}
@@ -62,4 +66,19 @@ private Long id;
 		this.reference = reference;
 	}
 
+	public String getDuree() {
+		return duree;
+	}
+
+	public void setDuree(String duree) {
+		this.duree = duree;
+	}
+
+	public String getTypeEmploi() {
+		return typeEmploi;
+	}
+
+	public void setTypeEmploi(String typeEmploi) {
+		this.typeEmploi = typeEmploi;
+	}
 }

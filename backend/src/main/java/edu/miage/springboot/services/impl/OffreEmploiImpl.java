@@ -1,5 +1,6 @@
 package edu.miage.springboot.services.impl;
 
+import edu.miage.springboot.dao.entities.OffreEmploi;
 import edu.miage.springboot.dao.repositories.FolderRepository;
 import edu.miage.springboot.dao.repositories.OffreEmploiRepository;
 import edu.miage.springboot.services.interfaces.OffreEmploiService;
@@ -35,14 +36,16 @@ public class OffreEmploiImpl implements OffreEmploiService {
 
 	@Override
 	public OffreEmploiDTO save(OffreEmploiDTO emploi) {
-		// TODO Auto-generated method stub
-		return null;
+		OffreEmploi offreEmploi = offreEmploiMapper.dtoToEntity(emploi);
+		OffreEmploi savedOffre = offreEmploiRepository.save(offreEmploi);
+		return offreEmploiMapper.entityToDto(savedOffre);
 	}
 
 	@Override
 	public OffreEmploiDTO update(OffreEmploiDTO emploi) {
-		// TODO Auto-generated method stub
-		return null;
+		var entity = offreEmploiMapper.dtoToEntity(emploi);
+		var savedEntity = offreEmploiRepository.save(entity);
+		return offreEmploiMapper.entityToDto(savedEntity);
 	}
 
 	@Override

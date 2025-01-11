@@ -1,0 +1,21 @@
+.hero {
+  background: linear-gradient(90deg, #007bff, #0056b3);
+}
+
+.card {
+  transition: transform 0.2s ease-in-out;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial {
+  font-style: italic;
+  text-align: center;
+}
+
+.testimonial h5 {
+  color: #007bff;
+  font-weight: bold;
+}

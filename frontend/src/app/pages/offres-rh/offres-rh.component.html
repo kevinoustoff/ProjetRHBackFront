@@ -1,7 +1,11 @@
 <app-menu></app-menu>
-<ag-grid-angular
-  class="ag-theme-alpine"
-  [rowData]="rowData"
-  [columnDefs]="colDefs"
-  style="width: 100%; height: 400px;"
-></ag-grid-angular>
+<div class="container mt-5">
+    <button (click)='onClickCreate()' type="button" class="btn btn-primary btn-create float-end">Creer une offre</button>
+    <br/>
+    <ag-grid-angular
+            class="ag-theme-alpine"
+            [rowData]="rowData"
+            [columnDefs]="colDefs"
+            style="width: 100%; height: 400px;"
+    ></ag-grid-angular>
+</div>

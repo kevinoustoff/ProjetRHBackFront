@@ -8,6 +8,7 @@ import {Router} from "@angular/router";
 import {Folder} from "../../models/Folder";
 import {OffresService} from "../../services/offres.service";
 import {Offre} from "../../models/Offre";
+import {CommonModule} from "@angular/common";
 
 // Register AG Grid Modules
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -17,19 +18,23 @@ ModuleRegistry.registerModules([AllCommunityModule]);
 @Component({
   selector: 'app-offres-rh',
   standalone: true,
-  imports: [AgGridAngular,MenuComponent], // Removed AgGridModule
+  imports: [AgGridAngular,MenuComponent,CommonModule], // Removed AgGridModule
   templateUrl: './offres-rh.component.html',
   styleUrls: ['./offres-rh.component.scss'] // Corrected styleUrls (plural)
 })
 export class OffresRHComponent implements OnInit {
   offres:Offre[]=[];
   colDefs: ColDef<Offre>[] = [
-    { field: "reference", headerName: "Reference" },
+    { field: "reference", headerName: "Référence" },
     { field: "nom", headerName: "Nom" },
     { field: "statut", headerName: "Statut" },
-    { field: "datePublication", headerName: "Date de Publication" },
+    { field: "datePublication",
+      headerName: "Date de Publication",
+      valueFormatter: (params) => this.formatDate(params.value) },
+    { field: "duree", headerName: "Durée" },
+    { field: "typeEmploi", headerName: "Type d'Emploi" },
     {
-      headerName: "Actions", // Custom action column
+      headerName: "Actions", // Colonne d'actions personnalisée
       cellRenderer: (params: ICellRendererParams) => {
         return `<button class="btn btn-primary">Voir les détails</button>`;
       },
@@ -60,4 +65,13 @@ export class OffresRHComponent implements OnInit {
     //alert(`Action clicked for: ${rowData.nom}`);
     this.router.navigate(['/offres-rh', rowData.id])
   }
+
+  formatDate(date: string | Date): string {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(date).toLocaleDateString('fr-FR', options);
+  }
+  onClickCreate(){
+    this.router.navigate(['/offres-rh/create']);
+  }
+
 }
