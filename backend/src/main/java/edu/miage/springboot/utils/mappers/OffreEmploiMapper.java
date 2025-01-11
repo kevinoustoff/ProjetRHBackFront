@@ -14,5 +14,4 @@ public interface OffreEmploiMapper {
 	 OffreEmploiDTO entityToDto(OffreEmploi entity);
 	 List<OffreEmploi> dtosToEntities(List<OffreEmploiDTO> dtos);
 	 List<OffreEmploiDTO> entitiesToDtos(List<OffreEmploi> entities);
-
 }

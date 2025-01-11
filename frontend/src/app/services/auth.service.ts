@@ -4,6 +4,7 @@ import { AuthRequest } from '../models/AuthRequest';
 import { AuthResponse } from '../models/AuthResponse';
 import { Observable } from 'rxjs';
 import { geturl } from '../../environments/environment';
+import {jwtDecode} from "jwt-decode";
 
 @Injectable({
   providedIn: 'root'
@@ -24,5 +25,59 @@ export class AuthService {
   logout(): void {
     sessionStorage.removeItem("ACCESS_TOKEN");
   }
+  getToken(): string | null {
+    return sessionStorage.getItem("ACCESS_TOKEN");
+  }
+
+  getUserRoles(): string[] {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const payload: any = jwtDecode(token); // Utilisation de `jwt-decode`
+        return payload.roles || []; // Retourne les rôles ou un tableau vide
+      } catch (error) {
+        console.error('Erreur lors du décodage du JWT:', error);
+        return [];
+      }
+    }
+    return [];
+  }
+
+  isAdmin(): boolean {
+    const roles = this.getUserRoles();
+    return roles.includes('ROLE_ADMIN');
+  }
+
+  getUsername(): string | null {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const payload: any = jwtDecode(token); // Décodage du token
+        return payload.sub || null; // Récupère le champ 'sub' pour l'username
+      } catch (error) {
+        console.error('Erreur lors du décodage du JWT:', error);
+        return null;
+      }
+    }
+    return null;
+  }
+
+  public getId(): number | null {
+    const token = this.getToken();
+    if (token) {
+      try {
+        const payload: any = jwtDecode(token); // Décodage du token
+        return payload.userId || null; // Récupère le champ 'userId'
+      } catch (error) {
+        console.error('Erreur lors du décodage du JWT:', error);
+        return null;
+      }
+    }
+    return null;
+  }
+
+
+
+
 
 }

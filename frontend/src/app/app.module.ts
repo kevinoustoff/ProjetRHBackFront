@@ -8,7 +8,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatCardModule} from '@angular/material/card';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { LoginComponent } from './pages/login/login.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
 import { FolderListComponent } from './pages/folder-list/folder-list.component';
@@ -43,6 +43,7 @@ import {HomeComponent} from "./pages/home/home.component";
     MatButtonModule,
     MatInputModule,
     MatListModule,
+    FormsModule
     
   ],
   providers: [

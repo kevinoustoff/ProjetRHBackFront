@@ -35,6 +35,10 @@ public class AuthResponseDTO implements Serializable {
     public AuthResponseDTO() {
     }
 
+    public AuthResponseDTO(String accessToken) {
+        this.accessToken = accessToken;
+    }
+
     public AuthResponseDTO(String accessToken,String username ,Set<Role> roles) {
         this.accessToken = accessToken;
         this.username = username;

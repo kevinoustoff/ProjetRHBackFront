@@ -36,6 +36,10 @@ public class Utilisateur {
 	@ManyToMany(fetch = FetchType.EAGER)
     private Set<Role> roles = new HashSet<>();
 
+	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private CvEnLigne cvEnLigne;
+
+
 
 	public Utilisateur() {}
 
@@ -118,5 +122,13 @@ public class Utilisateur {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+
+	public CvEnLigne getCv() {
+		return cvEnLigne;
+	}
+
+	public void setCv(CvEnLigne cv) {
+		this.cvEnLigne = cv;
+	}
 
 }
