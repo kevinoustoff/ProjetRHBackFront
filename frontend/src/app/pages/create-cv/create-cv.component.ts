@@ -4,6 +4,7 @@ import {CvEnLigne} from "../../models/CvEnLigne";
 import {MenuComponent} from "../../layout/menu/menu.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule, NgForm, ReactiveFormsModule} from "@angular/forms";
+import {AuthService} from "../../services/auth.service";
 
 @Component({
   selector: 'app-create-cv',
@@ -16,7 +17,7 @@ export class CreateCvComponent {
   cv: CvEnLigne = {
     title: '',
     summary: '',
-    experiences: [{ jobTitle: '', company: '', location: '', startDate: '', endDate: '' }],
+    experiences: [{ jobTitle: '', company: '', location: '', startDate: '', endDate: '', description:'' }],
     formations: [],
     competences: [],
     langues: [],
@@ -27,10 +28,11 @@ export class CreateCvComponent {
       address: '',
       email: ''
     },
-    certifications: []
+    certifications: [],
+    user: {id:this.authService.getId()}
   };
 
-  constructor(private cvService: CvEnLigneService) {}
+  constructor(private cvService: CvEnLigneService, private authService:AuthService) {}
 
   onSubmit() {
     this.cvService.createCv(this.cv).subscribe({
@@ -80,7 +82,7 @@ export class CreateCvComponent {
   }
 
   addExperience() {
-    this.cv.experiences.push({ jobTitle: '', company: '', location: '', startDate: '', endDate: '' }); // Ajout d'une nouvelle expérience vide
+    this.cv.experiences.push({ jobTitle: '', company: '', location: '', startDate: '', endDate: '',description: '' }); // Ajout d'une nouvelle expérience vide
   }
 
   removeExperience(index: number) {

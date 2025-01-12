@@ -16,4 +16,7 @@ export class CvEnLigneService {
     const url=`${geturl()}/api/cvsenligne`;
     return this.http.post<CvEnLigne>(url, cv);
   }
+  getCvByUserId(id: number): Observable<CvEnLigne> {
+    return this.http.get<CvEnLigne>(`${geturl()}/api/cvsenligne/user/${id}`);
+  }
 }

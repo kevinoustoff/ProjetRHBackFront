@@ -9,6 +9,7 @@ import {OffresDetailsComponent} from "./pages/offres-details/offres-details.comp
 import {OffreCreateComponent} from "./pages/offre-create/offre-create.component";
 import {HomeComponent} from "./pages/home/home.component";
 import {CreateCvComponent} from "./pages/create-cv/create-cv.component";
+import {CvEnLigneComponent} from "./pages/cv-en-ligne/cv-en-ligne.component";
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -16,6 +17,7 @@ const routes: Routes = [
   {path:"offres-rh/create",component:OffreCreateComponent,canActivate: [AuthGuard]},
   {path:"offres-rh/:id",component:OffresDetailsComponent,canActivate: [AuthGuard]},
   { path: 'mon-cv', component: CreateCvComponent },
+  { path: 'see-mon-cv', component: CvEnLigneComponent },
 
 
 

@@ -18,5 +18,8 @@ export interface CvEnLigne {
         address: string;
         email: string;
     };
-    certifications: { certificationName: string, issuingOrganization: string, issueDate: string }[]; // Liste des certifications
+    certifications: { certificationName: string, issuingOrganization: string, issueDate: string }[];// Liste des certifications
+    "user"?: {
+        "id": number;
+    }
 }
