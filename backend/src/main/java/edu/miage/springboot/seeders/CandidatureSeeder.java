@@ -58,7 +58,37 @@ public class CandidatureSeeder implements CommandLineRunner {
             candidature.setUtilisateur(utilisateur);
             candidature.setOffreEmploi(offreEmploi);
 
+            Utilisateur utilisateur1 = new Utilisateur();
+            utilisateur1.setUsername("candidat");
+            utilisateur1.setPassword(passwordEncoder.encode("pass123"));
+            utilisateur1.setNom("Bah");
+            utilisateur1.setPrenoms("Woury");
+            utilisateur1.setEmail("bah.woury@gmail.com");
+            utilisateur1.setTelephone("0789765423");
+            utilisateur1.setAdresse("123 Rue Strasbourg, Strasbourg");
+            userRepository.save(utilisateur1);
+
+            OffreEmploi offreEmploi1 = new OffreEmploi();
+            offreEmploi1.setNom("Développeur Angular");
+            offreEmploi1.setDescription("Nous recherchons un développeur frontend expérimenté.");
+            offreEmploi1.setDatePublication(new Date());
+            offreEmploi1.setReference("1234-DEV");
+            offreEmploi1.setStatut("en attente");
+            offreEmploi1.setDuree("6 mois");
+            offreEmploi1.setTypeEmploi("CDI");
+
+             offreEmploiRepository.save(offreEmploi1);
+
+        Candidature candidature1 = new Candidature();
+        candidature1.setDateCandidature(LocalDate.now());  // Date actuelle
+        candidature1.setLettreMotivation("Je suis très motivé pour ce poste !");
+        candidature1.setStatut("En attente");
+        candidature1.setUtilisateur(utilisateur1);
+        candidature1.setOffreEmploi(offreEmploi1);
+
+
             candidatureRepository.save(candidature);
+            candidatureRepository.save(candidature1);
 
 
     }
