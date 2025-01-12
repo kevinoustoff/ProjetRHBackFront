@@ -8,12 +8,17 @@ import { OffresRHComponent } from './pages/offres-rh/offres-rh.component';
 import {OffresDetailsComponent} from "./pages/offres-details/offres-details.component";
 import {OffreCreateComponent} from "./pages/offre-create/offre-create.component";
 import {HomeComponent} from "./pages/home/home.component";
+import { CandidaturesRhComponent } from './pages/candidatures-rh/candidatures-rh.component';
+import { CandidatureCreateComponent } from './pages/candidature-create/candidature-create.component';
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
   {path:"offres-rh",component:OffresRHComponent,canActivate: [AuthGuard],},
   {path:"offres-rh/create",component:OffreCreateComponent,canActivate: [AuthGuard]},
   {path:"offres-rh/:id",component:OffresDetailsComponent,canActivate: [AuthGuard]},
+  {path:"candidatures-rh",component:CandidaturesRhComponent,canActivate:[AuthGuard]},
+  {path:"candidatures-rh/create",component:CandidatureCreateComponent,canActivate:[AuthGuard]},
+  
 
 
 
