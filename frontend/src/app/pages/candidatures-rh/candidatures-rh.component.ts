@@ -7,6 +7,7 @@ import { CandidaturesService } from '../../services/candidatures.service';
 import { Candidature } from '../../models/candidature.model';
 import { CommonModule } from '@angular/common';
 import { MenuComponent } from '../../layout/menu/menu.component';
+import { Candidaturecomplet } from '../../models/candidaturecomplet.model';
 
 // Register AG Grid Modules
 ModuleRegistry.registerModules([AllCommunityModule]);
@@ -19,8 +20,8 @@ ModuleRegistry.registerModules([AllCommunityModule]);
   styleUrls: ['./candidatures-rh.component.scss']
 })
 export class CandidaturesRhComponent implements OnInit {
-  candidatures: Candidature[] = [];
-  colDefs: ColDef<Candidature>[] = [
+  candidatures: Candidaturecomplet[] = [];
+  colDefs: ColDef<Candidaturecomplet>[] = [
     { field: 'id', headerName: 'ID' },
     {
       field: 'dateCandidature',
@@ -45,7 +46,7 @@ export class CandidaturesRhComponent implements OnInit {
 
   ngOnInit(): void {
     // Charger toutes les candidatures via le service
-    this.candidaturesService.getAllCandidatures().subscribe((candidatures: Candidature[]) => {
+    this.candidaturesService.getAllCandidatures().subscribe((candidatures: Candidaturecomplet[]) => {
       this.candidatures = candidatures;
       console.log('Candidatures loaded:', this.candidatures);
     });

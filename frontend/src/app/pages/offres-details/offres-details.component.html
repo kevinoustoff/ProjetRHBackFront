@@ -9,40 +9,40 @@
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item" role="presentation">
                     <button
-                            class="nav-link active"
-                            id="home-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#home"
-                            type="button"
-                            role="tab"
-                            aria-controls="home"
-                            aria-selected="true">
+                        class="nav-link active"
+                        id="home-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#home"
+                        type="button"
+                        role="tab"
+                        aria-controls="home"
+                        aria-selected="true">
                         Informations générales
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button
-                            class="nav-link"
-                            id="profile-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#profile"
-                            type="button"
-                            role="tab"
-                            aria-controls="profile"
-                            aria-selected="false">
+                        class="nav-link"
+                        id="profile-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#profile"
+                        type="button"
+                        role="tab"
+                        aria-controls="profile"
+                        aria-selected="false">
                         Candidatures
                     </button>
                 </li>
                 <li class="nav-item" role="presentation">
                     <button
-                            class="nav-link"
-                            id="contact-tab"
-                            data-bs-toggle="tab"
-                            data-bs-target="#contact"
-                            type="button"
-                            role="tab"
-                            aria-controls="contact"
-                            aria-selected="false">
+                        class="nav-link"
+                        id="contact-tab"
+                        data-bs-toggle="tab"
+                        data-bs-target="#contact"
+                        type="button"
+                        role="tab"
+                        aria-controls="contact"
+                        aria-selected="false">
                         Contact
                     </button>
                 </li>
@@ -69,7 +69,21 @@
                 <!-- Tab 2: Candidatures -->
                 <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
                     <h2 class="text-secondary">Candidatures</h2>
-                    <p class="lead text-muted">Aucun contenu disponible pour le moment.</p>
+                    <form (ngSubmit)="postuler()">
+                        <div class="mb-3">
+                            <label for="lettreMotivation" class="form-label">Lettre de motivation :</label>
+                            <textarea
+                                id="lettreMotivation"
+                                [(ngModel)]="lettreMotivation"
+                                name="lettreMotivation"
+                                class="form-control"
+                                rows="6"
+                                placeholder="Rédigez votre lettre de motivation ici..."
+                                required>
+                            </textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Postuler</button>
+                    </form>
                 </div>
 
                 <!-- Tab 3: Contact -->

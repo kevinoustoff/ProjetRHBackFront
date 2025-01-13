@@ -43,7 +43,8 @@ import {HomeComponent} from "./pages/home/home.component";
     MatButtonModule,
     MatInputModule,
     MatListModule,
-    FormsModule
+    FormsModule,
+  
     
   ],
   providers: [
