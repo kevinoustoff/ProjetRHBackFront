@@ -9,5 +9,6 @@ public interface CvEnLigneService {
     CvEnLigne updateCv(Long id, CvEnLigne cv);
     CvEnLigne getCvById(Long id);
     List<CvEnLigne> getAllCvs();
+    CvEnLigne getCvByUserId(Long id);
     void deleteCv(Long id);
 }

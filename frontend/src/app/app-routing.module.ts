@@ -10,6 +10,7 @@ import {OffreCreateComponent} from "./pages/offre-create/offre-create.component"
 import {HomeComponent} from "./pages/home/home.component";
 import {CreateCvComponent} from "./pages/create-cv/create-cv.component";
 import { CandidaturesRhComponent } from './pages/candidatures-rh/candidatures-rh.component';
+import {CvEnLigneComponent} from "./pages/cv-en-ligne/cv-en-ligne.component";
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -20,6 +21,7 @@ const routes: Routes = [
   {path:"candidatures-rh",component:CandidaturesRhComponent,canActivate:[AuthGuard]},
  
   
+  { path: 'see-mon-cv', component: CvEnLigneComponent },
 
 
 

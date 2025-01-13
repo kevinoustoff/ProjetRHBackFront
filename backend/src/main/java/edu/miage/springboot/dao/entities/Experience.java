@@ -1,5 +1,6 @@
 package edu.miage.springboot.dao.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -10,6 +11,7 @@ public class Experience {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     @JoinColumn(name = "cv_id", nullable = false)
     private CvEnLigne cv;
 

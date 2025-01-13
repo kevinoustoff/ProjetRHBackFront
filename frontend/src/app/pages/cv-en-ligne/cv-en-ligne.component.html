@@ -1,0 +1,68 @@
+<app-menu></app-menu>
+<div *ngIf="isLoading" class="loading">Chargement du CV...</div>
+
+<div *ngIf="cv" class="cv-container">
+    <h1>{{ cv.title }}</h1>
+    <p>{{ cv.summary }}</p>
+
+    <div class="section">
+        <h2>Expériences</h2>
+        <ul>
+            <li *ngFor="let experience of cv.experiences">
+                <p><strong>{{ experience.jobTitle }}</strong> - {{ experience.company }}</p>
+                <p>{{ experience.startDate }} - {{ experience.endDate }}</p>
+                <p>{{ experience.description }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Formations</h2>
+        <ul>
+            <li *ngFor="let formation of cv.formations">
+                <p><strong>{{ formation.degree }}</strong>, {{ formation.institution }}</p>
+                <p>{{ formation.location }} - {{ formation.graduationDate }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Compétences</h2>
+        <ul>
+            <li *ngFor="let competence of cv.competences">
+                <p>{{ competence.name }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Langues</h2>
+        <ul>
+            <li *ngFor="let langue of cv.langues">
+                <p>{{ langue.language }} - {{ langue.proficiency }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Localisation</h2>
+        <p>{{ cv.localisation }}</p>
+    </div>
+
+    <div class="section">
+        <h2>Coordonnées</h2>
+        <p>Téléphone : {{ cv.coordonnees.phoneNumber }}</p>
+        <p>Adresse : {{ cv.coordonnees.address }}, {{ cv.coordonnees.city }}</p>
+        <p>Email : {{ cv.coordonnees.email }}</p>
+    </div>
+
+    <div class="section">
+        <h2>Certifications</h2>
+        <ul>
+            <li *ngFor="let certification of cv.certifications">
+                <p><strong>{{ certification.certificationName }}</strong> - {{ certification.issuingOrganization }} ({{ certification.issueDate }})</p>
+            </li>
+        </ul>
+    </div>
+</div>
+

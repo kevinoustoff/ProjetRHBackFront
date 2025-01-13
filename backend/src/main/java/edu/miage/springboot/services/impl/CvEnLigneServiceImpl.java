@@ -44,6 +44,10 @@ public class CvEnLigneServiceImpl implements CvEnLigneService {
     public List<CvEnLigne> getAllCvs() {
         return cvRepository.findAll();
     }
+    @Override
+    public CvEnLigne getCvByUserId(Long id) {
+        return cvRepository.findByUserId(id).orElseThrow(() -> new RuntimeException("CV non trouvé pour l'utilisateur avec l'ID " + id));
+    }
 
     @Override
     public void deleteCv(Long id) {

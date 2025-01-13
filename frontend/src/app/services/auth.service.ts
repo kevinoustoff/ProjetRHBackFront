@@ -62,7 +62,7 @@ export class AuthService {
     return null;
   }
 
-  public getId(): number | null {
+  public getId(): number {
     const token = this.getToken();
     if (token) {
       try {
@@ -70,10 +70,10 @@ export class AuthService {
         return payload.userId || null; // Récupère le champ 'userId'
       } catch (error) {
         console.error('Erreur lors du décodage du JWT:', error);
-        return null;
+        return 0;
       }
     }
-    return null;
+    return 0;
   }
 
 
