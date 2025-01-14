@@ -3,6 +3,7 @@ package edu.miage.springboot.services.interfaces;
 import java.util.List;
 import java.util.Optional;
 
+import edu.miage.springboot.dao.entities.Candidature;
 import edu.miage.springboot.web.dtos.CandidatureDTO;
 
 public interface CandidatureService {
@@ -15,6 +16,8 @@ public interface CandidatureService {
     public CandidatureDTO update(CandidatureDTO candidature);
 
     public void deleteById(Long id);
+
+    public List<CandidatureDTO> getCandidaturesByOffre(Long offreId);
 
 
 }

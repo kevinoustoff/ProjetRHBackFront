@@ -58,6 +58,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/login","/api/auth/signin")
                         .permitAll()
+                        .requestMatchers("/api/candidatures/**").authenticated()
                         .requestMatchers("/", "/index.html", "*.ico", "*.css", "*.js")
                         .permitAll()
                         .requestMatchers("/actuator/**")

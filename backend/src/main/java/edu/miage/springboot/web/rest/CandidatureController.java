@@ -25,11 +25,22 @@ public class CandidatureController {
     public ResponseEntity<CandidatureDTO> addCandidature(@RequestBody  CandidatureDTO candidatureDTO) {
         return  ResponseEntity.ok(candidatureService.save(candidatureDTO));
     }
+
+    @GetMapping("/by-offres/{id}")
+    public ResponseEntity<List<CandidatureDTO>>getCandidaturesByOffreId(@PathVariable("id") Long id) {
+        List<CandidatureDTO> candidatures = candidatureService.getCandidaturesByOffre(id);
+        System.err.println("Candidatures trouvées : " + candidatures.size());
+        return ResponseEntity.ok(candidatureService.getCandidaturesByOffre(id));
+    }
+
     @GetMapping("/{id}")
-    public ResponseEntity<CandidatureDTO> getCandidatureById(@PathVariable Long id) {
+    public ResponseEntity<CandidatureDTO> getCandidatureById(@PathVariable("id") Long id) {
         return ResponseEntity.ok(candidatureService.getById(id)
                 .orElseThrow(()->new EntityNotFoundException()));
 
     }
+
+
+
 
 }

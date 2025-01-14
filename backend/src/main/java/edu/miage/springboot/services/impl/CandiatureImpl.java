@@ -68,6 +68,16 @@ public class CandiatureImpl implements CandidatureService {
 		return null;
 	}
 
+	/**
+	 * Récupère toutes les candidatures associées à une offre d'emploi donnée.
+	 * @param offreId L'identifiant de l'offre d'emploi.
+	 * @return Liste des candidatures pour cette offre.
+	 */
+	public List<CandidatureDTO> getCandidaturesByOffre(Long offreId) {
+
+		return  candidatureMapper.entitiesToDtos(candidatureRepository.findByOffreEmploi_Id(offreId));
+	}
+
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
