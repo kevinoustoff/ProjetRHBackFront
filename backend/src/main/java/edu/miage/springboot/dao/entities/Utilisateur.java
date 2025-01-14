@@ -4,6 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 
@@ -37,9 +39,8 @@ public class Utilisateur {
     private Set<Role> roles = new HashSet<>();
 
 	@OneToOne(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	@JsonBackReference
 	private CvEnLigne cvEnLigne;
-
-
 
 	public Utilisateur() {}
 

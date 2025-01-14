@@ -1,5 +1,6 @@
 package edu.miage.springboot.dao.entities;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -10,9 +11,9 @@ public class Competence {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "cv_id", nullable = false)
+    @JsonBackReference
     private CvEnLigne cv;
 
     private String name;

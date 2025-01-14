@@ -10,10 +10,6 @@ public class Coordonnees {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @JsonIgnore
-    @OneToOne(mappedBy = "coordonnees", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private CvEnLigne cv;
-
     @Column(length = 15)
     private String phoneNumber; // Numéro de téléphone
 
@@ -35,13 +31,6 @@ public class Coordonnees {
         this.id = id;
     }
 
-    public CvEnLigne getCv() {
-        return cv;
-    }
-
-    public void setCv(CvEnLigne cv) {
-        this.cv = cv;
-    }
 
     public String getPhoneNumber() {
         return phoneNumber;
