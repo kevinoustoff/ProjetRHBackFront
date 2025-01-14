@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Candidature } from '../models/candidature.model';
 import { geturl } from '../../environments/environment';
+import { Candidaturecomplet } from '../models/candidaturecomplet.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,9 +13,9 @@ export class CandidaturesService {
   constructor(private http: HttpClient) { }
 
   // Récupérer toutes les candidatures
-  getAllCandidatures(): Observable<Candidature[]> {
+  getAllCandidatures(): Observable<Candidaturecomplet[]> {
     const url = `${geturl()}/api/candidatures`;
-    return this.http.get<Candidature[]>(url);
+    return this.http.get<Candidaturecomplet[]>(url);
   }
 
   // Ajouter une nouvelle candidature
