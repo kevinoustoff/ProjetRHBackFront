@@ -3,6 +3,7 @@ import {Router, RouterLink, RouterLinkActive, RouterOutlet} from "@angular/route
 import {AuthService} from "../../services/auth.service";
 import {jwtDecode} from "jwt-decode";
 import { CommonModule } from '@angular/common';
+import {CvEnLigneService} from "../../services/cv-en-ligne.service";
 
 @Component({
   selector: 'app-menu',
@@ -15,8 +16,9 @@ import { CommonModule } from '@angular/common';
 })
 export class MenuComponent {
   userInfo: { [key: string]: any } = {};
+  hasCv: boolean = false;
 
-  constructor(public authService: AuthService, public router: Router){
+  constructor(public authService: AuthService, public router: Router, public cvService: CvEnLigneService){
     const token = sessionStorage.getItem("ACCESS_TOKEN");
 
     if (token) {
@@ -34,6 +36,16 @@ export class MenuComponent {
     console.log(this.userInfo)
     console.log(this.isUser())
   }
+
+  ngOnInit(): void {
+    if (this.isUser()) {
+      const userId = this.authService.getId();
+      this.cvService.hasACv(userId).subscribe((hasCv) => {
+        this.hasCv = hasCv;
+      });
+    }
+  }
+
   isAdmin():boolean{
     return this.userInfo?.['roles']?.includes("ROLE_ADMIN") ?? false;
   }

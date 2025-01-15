@@ -12,7 +12,7 @@ public class Experience {
     private Long id;
 
     @ManyToOne
-    @JoinColumn(name = "cv_id", nullable = false)
+    @JoinColumn(name = "cv_id")
     @JsonBackReference
     private CvEnLigne cv;
 

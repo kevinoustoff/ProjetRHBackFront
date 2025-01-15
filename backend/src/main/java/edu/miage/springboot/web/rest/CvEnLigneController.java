@@ -32,19 +32,71 @@ public class CvEnLigneController {
         CvEnLigne cv = cvEnLigneMapper.dtoToEntity(cvDto);
 
         // Récupérer l'utilisateur par son ID
-        Utilisateur user = utilisateurRepository.findById(cv.getUser().getId())
+        Utilisateur user = utilisateurRepository.findById(cvDto.getUserId())
                 .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
 
         cv.setUser(user); // Associer l'utilisateur au CV
+        if (cv.getCertifications() != null) {
+            for (Certification certification : cv.getCertifications()) {
+                certification.setCv(cv);
+            }
+        }
+        if (cv.getCompetences() != null) {
+            for (Competence competence : cv.getCompetences()) {
+                competence.setCv(cv);
+            }
+        }
+        if (cv.getLangues() != null) {
+            for (Langue langue : cv.getLangues()) {
+                langue.setCv(cv);
+            }
+        }
+        if (cv.getExperiences() != null) {
+            for (Experience experience : cv.getExperiences()) {
+                experience.setCv(cv);
+            }
+        }
+        if (cv.getFormations() != null) {
+            for (Formation formation : cv.getFormations()) {
+                formation.setCv(cv);
+            }}
 
-        CvEnLigne createdCv = cvService.createCv(cv);
-        CvEnLigneDTO createdCvDto = cvEnLigneMapper.entityToDto(createdCv); // Convertir l'entité créée en DTO
-        return new ResponseEntity<>(createdCvDto, HttpStatus.CREATED);
+            CvEnLigne createdCv = cvService.createCv(cv);
+            CvEnLigneDTO createdCvDto = cvEnLigneMapper.entityToDto(createdCv); // Convertir l'entité créée en DTO
+            return new ResponseEntity<>(createdCvDto, HttpStatus.CREATED);
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<CvEnLigneDTO> updateCv(@PathVariable Long id, @RequestBody CvEnLigneDTO cvDto) {
         CvEnLigne cv = cvEnLigneMapper.dtoToEntity(cvDto);
+        Utilisateur user = utilisateurRepository.findById(cvDto.getUserId())
+                .orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
+
+        cv.setUser(user);
+        if (cv.getCertifications() != null) {
+            for (Certification certification : cv.getCertifications()) {
+                certification.setCv(cv);
+            }
+        }
+        if (cv.getCompetences() != null) {
+            for (Competence competence : cv.getCompetences()) {
+                competence.setCv(cv);
+            }
+        }
+        if (cv.getLangues() != null) {
+            for (Langue langue : cv.getLangues()) {
+                langue.setCv(cv);
+            }
+        }
+        if (cv.getExperiences() != null) {
+            for (Experience experience : cv.getExperiences()) {
+                experience.setCv(cv);
+            }
+        }
+        if (cv.getFormations() != null) {
+            for (Formation formation : cv.getFormations()) {
+                formation.setCv(cv);
+            }}
         CvEnLigne updatedCv = cvService.updateCv(id, cv);
         CvEnLigneDTO updatedCvDto = cvEnLigneMapper.entityToDto(updatedCv);
         return new ResponseEntity<>(updatedCvDto, HttpStatus.OK);

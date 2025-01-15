@@ -20,7 +20,7 @@
                 <li *ngIf="isUser()" class="nav-item">
                     <a class="nav-link" routerLink="/candidatures-rh">Mes candidatures</a>
                 </li>
-                <li *ngIf="isUser()" class="nav-item">
+                <li *ngIf="isUser()&& !hasCv" class="nav-item">
                     <a class="nav-link" routerLink="/mon-cv">Créer mon CV</a>
                 </li>
                 <li *ngIf="isUser()" class="nav-item">

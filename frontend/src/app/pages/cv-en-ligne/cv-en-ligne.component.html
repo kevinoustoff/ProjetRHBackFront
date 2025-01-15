@@ -66,7 +66,12 @@
         <p>Adresse : {{ cv.coordonnees.address }}, {{ cv.coordonnees.city }}</p>
         <p>Email : {{ cv.coordonnees.email }}</p>
     </div>
-
+    <button
+            class="btn btn-primary"
+            [routerLink]="['/cv/edit', cv.id]"
+    >
+        Modifier le CV
+    </button>
 
 </div>
 

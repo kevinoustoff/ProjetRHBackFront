@@ -19,7 +19,7 @@ public class Coordonnees {
     @Column(length = 255)
     private String address; // Adresse
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     private String email; // Adresse email
 
     // Getters et Setters

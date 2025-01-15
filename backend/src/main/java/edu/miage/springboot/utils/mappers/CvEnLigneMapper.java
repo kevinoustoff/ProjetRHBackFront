@@ -2,7 +2,6 @@ package edu.miage.springboot.utils.mappers;
 
 import edu.miage.springboot.dao.entities.Candidature;
 import edu.miage.springboot.dao.entities.CvEnLigne;
-import edu.miage.springboot.web.dtos.CandidatureDTO;
 import edu.miage.springboot.web.dtos.CvEnLigneDTO;
 import org.mapstruct.Mapper;
 

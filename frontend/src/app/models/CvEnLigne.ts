@@ -15,7 +15,5 @@ export interface CvEnLigne {
     localisation: string;
     coordonnees: Coordonnees;
     certifications: { certificationName: string, issuingOrganization: string, issueDate: string }[];// Liste des certifications
-    "user"?: {
-        "id": number;
-    }
+    userId: number;
 }
