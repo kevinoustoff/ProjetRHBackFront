@@ -23,6 +23,7 @@ public class CandidatureController {
 
     @PostMapping
     public ResponseEntity<CandidatureDTO> addCandidature(@RequestBody  CandidatureDTO candidatureDTO) {
+
         return  ResponseEntity.ok(candidatureService.save(candidatureDTO));
     }
 

@@ -43,9 +43,22 @@
                         role="tab"
                         aria-controls="contact"
                         aria-selected="false">
-                        Contact
+                        Liste des candidatures soumises
                     </button>
                 </li>
+<!--                <li class="nav-item" role="presentation">-->
+<!--                    <button-->
+<!--                            class="nav-link"-->
+<!--                            id="candidatures-tab"-->
+<!--                            data-bs-toggle="tab"-->
+<!--                            data-bs-target="#candidatures"-->
+<!--                            type="button"-->
+<!--                            role="tab"-->
+<!--                            aria-controls="contact"-->
+<!--                            aria-selected="false">-->
+<!--                        Contact-->
+<!--                    </button>-->
+<!--                </li>-->
             </ul>
 
             <!-- Tab Content -->
@@ -88,7 +101,14 @@
 
                 <!-- Tab 3: Contact -->
                 <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
-                    <h2 class="text-secondary">Contact</h2>
+                    <h2 class="text-secondary">Liste des candidatures soumises</h2>
+                    <br/>
+                    <ag-grid-angular
+                            class="ag-theme-alpine"
+                            [rowData]="candidatures"
+                            [columnDefs]="colDefs"
+                            style="width: 100%; height: 400px;"
+                    ></ag-grid-angular>
                 </div>
             </div>
         </div>

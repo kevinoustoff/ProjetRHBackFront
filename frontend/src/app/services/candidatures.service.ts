@@ -30,6 +30,11 @@ export class CandidaturesService {
     return this.http.get<Candidature>(url);
   }
 
+  getCandidaturesByOffre(id: number): Observable<Candidaturecomplet[]> {
+    const url = `${geturl()}/api/candidatures/by-offres/${id}`;
+    return this.http.get<Candidaturecomplet[]>(url);
+  }
+
   // Mettre à jour une candidature existante
   updateCandidature(id: number, candidature: Candidature): Observable<Candidature> {
     const url = `${geturl()}/api/candidatures/${id}`;

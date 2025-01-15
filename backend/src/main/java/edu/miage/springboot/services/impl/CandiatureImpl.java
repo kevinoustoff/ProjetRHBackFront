@@ -49,10 +49,10 @@ public class CandiatureImpl implements CandidatureService {
 	@Override
 	public CandidatureDTO save(CandidatureDTO candidatureDTO) {
 		// TODO Auto-generated method stub
-		Utilisateur utilisateur = userRepository.findById(candidatureDTO.getUtilisateur().getId())
+		Utilisateur utilisateur = userRepository.findById(candidatureDTO.getUtilisateurId())
 				.orElseThrow(() -> new RuntimeException("Utilisateur non trouvé"));
 
-		OffreEmploi offreEmploi = emploiRepository.findById(candidatureDTO.getOffreEmploi().getId())
+		OffreEmploi offreEmploi = emploiRepository.findById(candidatureDTO.getOffreEmploiId())
 				.orElseThrow(() -> new RuntimeException("Offre d'emploi non trouvée"));
 
 		Candidature candidature = candidatureMapper.dtoToEntity(candidatureDTO);

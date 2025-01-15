@@ -19,7 +19,25 @@ public class CandidatureDTO {
     
     private OffreEmploiDTO offreEmploi;
 
-    
+    private Long utilisateurId;
+
+    private Long offreEmploiId;
+
+    public Long getUtilisateurId() {
+        return utilisateurId;
+    }
+
+    public void setUtilisateurId(Long utilisateurId) {
+        this.utilisateurId = utilisateurId;
+    }
+
+    public Long getOffreEmploiId() {
+        return offreEmploiId;
+    }
+
+    public void setOffreEmploiId(Long offreEmploiId) {
+        this.offreEmploiId = offreEmploiId;
+    }
 
     // Getters et Setters
     public Long getId() {

@@ -7,16 +7,23 @@ import { CommonModule } from "@angular/common";
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';  // Importation du service AuthService
 import { Candidature } from '../../models/candidature.model'; // Importation de l'interface Candidature
-import { CandidaturesService } from '../../services/candidatures.service'; // Importation du service CandidaturesService
+import { CandidaturesService } from '../../services/candidatures.service';
+import {AgGridAngular} from "ag-grid-angular"; // Importation du service CandidaturesService
+import { ColDef, CellClickedEvent,ICellRendererParams } from "ag-grid-community";
+import { AllCommunityModule, ModuleRegistry } from "ag-grid-community";
+import {Candidaturecomplet} from "../../models/candidaturecomplet.model";
+// Register AG Grid Modules
+ModuleRegistry.registerModules([AllCommunityModule]);
 
 @Component({
   selector: 'app-offres-details',
   standalone: true,
-  imports: [
-    MenuComponent,
-    CommonModule,
-    FormsModule
-  ],
+    imports: [
+        MenuComponent,
+        CommonModule,
+        FormsModule,
+        AgGridAngular
+    ],
   templateUrl: './offres-details.component.html',
   styleUrls: ['./offres-details.component.scss']
 })
@@ -26,6 +33,27 @@ export class OffresDetailsComponent implements OnInit {
   lettreMotivation: string = ''; // Contient la lettre de motivation
   userId: number |null =null;
   userNom: string |null=null;
+  candidatures: Candidaturecomplet[] = [];
+  colDefs: ColDef<Candidaturecomplet>[] = [
+    { field: 'id', headerName: 'ID' },
+    {
+      field: 'dateCandidature',
+      headerName: 'Date de Candidature',
+      valueFormatter: (params) => this.formatDate(params.value)
+    },
+    { field: 'statut', headerName: 'Statut' },
+    { field: 'utilisateur.nom', headerName: 'Nom du Candidat' },
+    { field: 'offreEmploi.nom', headerName: 'Offre d\'Emploi' },
+    { field: 'lettreMotivation', headerName: 'Lettre de Motivation' },
+    {
+      headerName: 'Actions',  // Colonne d'actions personnalisée
+      cellRenderer: (params: ICellRendererParams) => {
+        return `<button class="btn btn-primary">Voir les détails</button>`;
+      },
+      onCellClicked: (params: CellClickedEvent) => this.onActionClick(params),
+      width: 200,
+    }
+  ];
   
 
   constructor(
@@ -51,11 +79,26 @@ export class OffresDetailsComponent implements OnInit {
         this.offre = offre;
         console.log('Détails de l\'offre:', this.offre);
       });
+
+      this.candidaturesService.getCandidaturesByOffre(this.offreId).subscribe((candidaturess: Candidaturecomplet[])=>{
+        this.candidatures=candidaturess
+      })
     });
   }
 
   ngOnInit(): void {}
+  // Format la date au format français
+  formatDate(date: string | Date): string {
+    const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: '2-digit', day: '2-digit' };
+    return new Date(date).toLocaleDateString('fr-FR', options);
+  }
 
+  // Action sur le clic du bouton dans le tableau
+  onActionClick(params: CellClickedEvent): void {
+    const rowData = params.data;
+    console.log('Action button clicked for row:', rowData);
+    this.route.navigate(['/candidatures-rh', rowData.id]);  // Redirige vers le détail de la candidature
+  }
   postuler(): void {
     // Vérifier si la lettre de motivation est vide
     if (this.lettreMotivation.trim() === '') {
