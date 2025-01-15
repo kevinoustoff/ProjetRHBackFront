@@ -1,5 +1,6 @@
 package edu.miage.springboot.dao.entities;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -13,8 +14,8 @@ public class CvEnLigne {
 
     @OneToOne
     @JoinColumn(name = "user_id", nullable = false)
+    @JsonManagedReference
     private Utilisateur user;
-
 
     private String title;
 
@@ -22,21 +23,26 @@ public class CvEnLigne {
     private String summary;
 
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Experience> experiences; // Liste des expériences
 
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Formation> formations; // Liste des formations
 
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Competence> competences; // Liste des compétences
 
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Langue> langues; // Liste des langues
 
     @Column(length = 1000)
     private String localisation; // Localisation
 
     @OneToMany(mappedBy = "cv", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Certification> certifications; // Liste des certifications
 
     @OneToOne(cascade = CascadeType.ALL)

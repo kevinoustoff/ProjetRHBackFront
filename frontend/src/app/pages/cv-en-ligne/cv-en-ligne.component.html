@@ -6,17 +6,6 @@
     <p>{{ cv.summary }}</p>
 
     <div class="section">
-        <h2>Expériences</h2>
-        <ul>
-            <li *ngFor="let experience of cv.experiences">
-                <p><strong>{{ experience.jobTitle }}</strong> - {{ experience.company }}</p>
-                <p>{{ experience.startDate }} - {{ experience.endDate }}</p>
-                <p>{{ experience.description }}</p>
-            </li>
-        </ul>
-    </div>
-
-    <div class="section">
         <h2>Formations</h2>
         <ul>
             <li *ngFor="let formation of cv.formations">
@@ -27,10 +16,32 @@
     </div>
 
     <div class="section">
+        <h2>Expériences</h2>
+        <ul>
+            <li *ngFor="let experience of cv.experiences">
+                <p><strong>{{ experience.jobTitle }}</strong> - {{ experience.company }}</p>
+                <p>{{ experience.startDate }} - {{ experience.endDate }}</p>
+                <p>{{ experience.description }}</p>
+            </li>
+        </ul>
+    </div>
+
+
+
+    <div class="section">
         <h2>Compétences</h2>
         <ul>
             <li *ngFor="let competence of cv.competences">
                 <p>{{ competence.name }}</p>
+            </li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Certifications</h2>
+        <ul>
+            <li *ngFor="let certification of cv.certifications">
+                <p><strong>{{ certification.certificationName }}</strong> - {{ certification.issuingOrganization }} ({{ certification.issueDate }})</p>
             </li>
         </ul>
     </div>
@@ -55,14 +66,12 @@
         <p>Adresse : {{ cv.coordonnees.address }}, {{ cv.coordonnees.city }}</p>
         <p>Email : {{ cv.coordonnees.email }}</p>
     </div>
+    <button
+            class="btn btn-primary"
+            [routerLink]="['/cv/edit', cv.id]"
+    >
+        Modifier le CV
+    </button>
 
-    <div class="section">
-        <h2>Certifications</h2>
-        <ul>
-            <li *ngFor="let certification of cv.certifications">
-                <p><strong>{{ certification.certificationName }}</strong> - {{ certification.issuingOrganization }} ({{ certification.issueDate }})</p>
-            </li>
-        </ul>
-    </div>
 </div>
 

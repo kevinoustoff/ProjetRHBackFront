@@ -1,4 +1,5 @@
 import {Experience} from "./Experience";
+import {Coordonnees} from "./Coordonnees";
 export interface Competence {
     name: string;
 }
@@ -12,14 +13,7 @@ export interface CvEnLigne {
     competences: Competence[]; // Liste des compétences
     langues: { language: string, proficiency: string }[]; // Liste des langues
     localisation: string;
-    coordonnees: {
-        phoneNumber: string;
-        city: string;
-        address: string;
-        email: string;
-    };
+    coordonnees: Coordonnees;
     certifications: { certificationName: string, issuingOrganization: string, issueDate: string }[];// Liste des certifications
-    "user"?: {
-        "id": number;
-    }
+    userId: number;
 }

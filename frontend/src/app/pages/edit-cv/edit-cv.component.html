@@ -1,0 +1,275 @@
+<app-menu></app-menu>
+<div class="container">
+    <h2>Modifier un CV</h2>
+    <form (ngSubmit)="onSubmit()" #cvForm="ngForm">
+
+        <div class="form-group">
+            <label for="title">Titre:</label>
+            <input
+                    type="text"
+                    id="title"
+                    required
+                    [(ngModel)]="cv.title"
+                    name="title"
+                    class="form-control"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="summary">Résumé:</label>
+            <textarea
+                    id="summary"
+                    required
+                    [(ngModel)]="cv.summary"
+                    name="summary"
+                    class="form-control"
+            ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="localisation">Localisation:</label>
+            <input
+                    type="text"
+                    id="localisation"
+                    required
+                    [(ngModel)]="cv.localisation"
+                    name="localisation"
+                    class="form-control"
+            />
+        </div>
+
+        <h4>Coordonnées:</h4>
+        <div class="form-group">
+            <label for="phoneNumber">Numéro de téléphone:</label>
+            <input
+                    type="text"
+                    id="phoneNumber"
+                    required
+                    [(ngModel)]="cv.coordonnees.phoneNumber"
+                    name="phoneNumber"
+                    class="form-control"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="city">Ville:</label>
+            <input
+                    type="text"
+                    id="city"
+                    required
+                    [(ngModel)]="cv.coordonnees.city"
+                    name="city"
+                    class="form-control"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="address">Adresse:</label>
+            <input
+                    type="text"
+                    id="address"
+                    required
+                    [(ngModel)]="cv.coordonnees.address"
+                    name="address"
+                    class="form-control"
+            />
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input
+                    type="email"
+                    id="email"
+                    required
+                    [(ngModel)]="cv.coordonnees.email"
+                    name="email"
+                    class="form-control"
+            />
+        </div>
+
+        <h4>Expériences:</h4>
+        <div class="form-group" *ngFor="let experience of cv.experiences; let i = index">
+            <input
+                    type="text"
+                    [(ngModel)]="experience.jobTitle"
+                    name="jobTitle{{i}}"
+                    class="form-control"
+                    placeholder="Intitulé du poste"
+                    required
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="experience.company"
+                    name="company{{i}}"
+                    class="form-control"
+                    placeholder="Entreprise"
+                    required
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="experience.location"
+                    name="location{{i}}"
+                    class="form-control"
+                    placeholder="Localisation"
+                    required
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="experience.startDate"
+                    name="startDate{{i}}"
+                    class="form-control"
+                    placeholder="Date de début"
+                    required
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="experience.endDate"
+                    name="endDate{{i}}"
+                    class="form-control"
+                    placeholder="Date de fin"
+                    required
+            />
+            <button
+                    type="button"
+                    (click)="removeExperience(i)"
+                    class="btn btn-danger mt-2"
+            >
+                Supprimer
+            </button>
+        </div>
+        <button type="button" (click)="addExperience()" class="btn btn-secondary">
+            Ajouter Expérience
+        </button>
+
+        <h4>Compétences:</h4>
+        <div *ngFor="let competence of cv.competences; let i = index" class="form-group">
+            <input
+                    type="text"
+                    [(ngModel)]="competence.name"
+                    name="competence{{i}}"
+                    class="form-control"
+                    placeholder="Compétence"
+            />
+            <button
+                    type="button"
+                    (click)="removeCompetence(i)"
+                    class="btn btn-danger mt-2"
+            >
+                Supprimer
+            </button>
+        </div>
+        <button type="button" (click)="addCompetence()" class="btn btn-secondary">
+            Ajouter Compétence
+        </button>
+
+        <h4>Langues:</h4>
+        <div class="form-group" *ngFor="let langue of cv.langues; let j = index">
+            <input
+                    type="text"
+                    [(ngModel)]="langue.language"
+                    name="langue{{j}}"
+                    class="form-control"
+                    placeholder="Langue"
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="langue.proficiency"
+                    name="proficiency{{j}}"
+                    class="form-control"
+                    placeholder="Niveau (Débutant, Intermédiaire, Avancé)"
+            />
+            <button
+                    type="button"
+                    (click)="removeLangue(j)"
+                    class="btn btn-danger mt-2"
+            >
+                Supprimer
+            </button>
+        </div>
+        <button type="button" (click)="addLangue()" class="btn btn-secondary">
+            Ajouter Langue
+        </button>
+
+        <h4>Certifications:</h4>
+        <div class="form-group" *ngFor="let certification of cv.certifications; let k = index">
+            <input
+                    type="text"
+                    [(ngModel)]="certification.certificationName"
+                    name="certificationName{{k}}"
+                    class="form-control"
+                    placeholder="Nom de la certification"
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="certification.issuingOrganization"
+                    name="issuingOrganization{{k}}"
+                    class="form-control"
+                    placeholder="Organisme émetteur"
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="certification.issueDate"
+                    name="issueDate{{k}}"
+                    class="form-control"
+                    placeholder="Date d'émission"
+            />
+            <button
+                    type="button"
+                    (click)="removeCertification(k)"
+                    class="btn btn-danger mt-2"
+            >
+                Supprimer
+            </button>
+        </div>
+        <button type="button" (click)="addCertification()" class="btn btn-secondary">
+            Ajouter Certification
+        </button>
+
+        <h4>Formations:</h4>
+        <div class="form-group" *ngFor="let formation of cv.formations; let l = index">
+            <input
+                    type="text"
+                    [(ngModel)]="formation.degree"
+                    name="degree{{l}}"
+                    class="form-control"
+                    placeholder="Diplôme"
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="formation.institution"
+                    name="institution{{l}}"
+                    class="form-control"
+                    placeholder="Institution"
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="formation.location"
+                    name="location{{l}}"
+                    class="form-control"
+                    placeholder="Localisation"
+            />
+            <input
+                    type="text"
+                    [(ngModel)]="formation.graduationDate"
+                    name="graduationDate{{l}}"
+                    class="form-control"
+                    placeholder="Date d'obtention"
+            />
+            <button
+                    type="button"
+                    (click)="removeFormation(l)"
+                    class="btn btn-danger mt-2"
+            >
+                Supprimer
+            </button>
+        </div>
+        <button type="button" (click)="addFormation()" class="btn btn-secondary">
+            Ajouter Formation
+        </button>
+
+        <div class="mt-4">
+            <button type="submit" class="btn btn-primary">Modifier CV</button>
+        </div>
+    </form>
+</div>
+

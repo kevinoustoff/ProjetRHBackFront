@@ -5,12 +5,13 @@ import {AuthService} from "../../services/auth.service";
 import {MenuComponent} from "../../layout/menu/menu.component";
 import {CommonModule} from "@angular/common";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-cv-en-ligne',
   standalone: true,
   imports: [
-    MenuComponent, CommonModule, ReactiveFormsModule, FormsModule
+    MenuComponent, CommonModule, ReactiveFormsModule, FormsModule, RouterLink
   ],
   templateUrl: './cv-en-ligne.component.html',
   styleUrl: './cv-en-ligne.component.scss'

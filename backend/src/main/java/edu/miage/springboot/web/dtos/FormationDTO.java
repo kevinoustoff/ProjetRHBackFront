@@ -1,42 +1,19 @@
-package edu.miage.springboot.dao.entities;
+package edu.miage.springboot.web.dtos;
 
-
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import jakarta.persistence.*;
-
-@Entity
-@Table(name = "formations")
-public class Formation {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class FormationDTO {
     private Long id;
-
-    @JsonIgnore
-    @ManyToOne
-    @JoinColumn(name = "cv_id")
-    @JsonBackReference
-    private CvEnLigne cv;
-
     private String degree;
     private String institution;
     private String location;
     private String graduationDate;
 
+    // Getters et Setters
     public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public CvEnLigne getCv() {
-        return cv;
-    }
-
-    public void setCv(CvEnLigne cv) {
-        this.cv = cv;
     }
 
     public String getDegree() {

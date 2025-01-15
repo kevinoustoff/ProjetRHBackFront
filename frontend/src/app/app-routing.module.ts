@@ -11,6 +11,7 @@ import {HomeComponent} from "./pages/home/home.component";
 import {CreateCvComponent} from "./pages/create-cv/create-cv.component";
 import { CandidaturesRhComponent } from './pages/candidatures-rh/candidatures-rh.component';
 import {CvEnLigneComponent} from "./pages/cv-en-ligne/cv-en-ligne.component";
+import {EditCvComponent} from "./pages/edit-cv/edit-cv.component";
 
 const routes: Routes = [
   {path:"login",component:LoginComponent},
@@ -18,9 +19,8 @@ const routes: Routes = [
   {path:"offres-rh/create",component:OffreCreateComponent,canActivate: [AuthGuard]},
   {path:"offres-rh/:id",component:OffresDetailsComponent,canActivate: [AuthGuard]},
   { path: 'mon-cv', component: CreateCvComponent },
+  {path: 'cv/edit/:id', component: EditCvComponent},
   {path:"candidatures-rh",component:CandidaturesRhComponent,canActivate:[AuthGuard]},
- 
-  
   { path: 'see-mon-cv', component: CvEnLigneComponent },
 
 

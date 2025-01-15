@@ -29,7 +29,7 @@ export class CreateCvComponent {
       email: ''
     },
     certifications: [],
-    user: {id:this.authService.getId()}
+    userId: this.authService.getId(),
   };
 
   constructor(private cvService: CvEnLigneService, private authService:AuthService) {}
